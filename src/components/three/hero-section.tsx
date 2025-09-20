@@ -22,7 +22,6 @@ export function HeroSection() {
 
       <group position={[-viewport.width / 2.5, 0.2, 0]}>
         <Text3D
-          
           size={0.6}
           height={0.1}
           curveSegments={12}
@@ -41,7 +40,6 @@ export function HeroSection() {
           />
         </Text3D>
         <Text3D
-          
           position={[0, -0.4, 0]}
           size={0.2}
           height={0.05}

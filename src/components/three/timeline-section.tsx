@@ -25,7 +25,6 @@ function TimelineNode({ position, year, title, description, isLast }) {
         position={[0.3, 0, 0]}
         anchorX="left"
         fontSize={0.2}
-        
         castShadow
       >
         {year}
@@ -43,7 +42,6 @@ function TimelineNode({ position, year, title, description, isLast }) {
           <Text
             position={[0.4, 0.2, -0.1]}
             fontSize={0.15}
-            
             anchorX="left"
           >
             {title}
@@ -72,7 +70,6 @@ export function TimelineSection() {
       <Text
         position={[0, viewport.height / 2.5, -1]}
         fontSize={0.5}
-        
         anchorX="center"
         castShadow
       >

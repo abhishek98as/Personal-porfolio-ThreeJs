@@ -48,7 +48,6 @@ function BusinessCard() {
           <Text
             position={[0, 0.2, 0.03]}
             fontSize={0.2}
-            
           >
             YOUR NAME
           </Text>
@@ -58,7 +57,6 @@ function BusinessCard() {
           <Text
             position={[0, -0.3, 0.03]}
             fontSize={0.07}
-            
           >
             {active ? 'Click to Close' : 'Click to Open'}
           </Text>
@@ -75,7 +73,6 @@ function BusinessCard() {
           <Text
             position={[0, 0.3, 0.03]}
             fontSize={0.1}
-            
           >
             CONTACT
           </Text>
@@ -131,7 +128,6 @@ export function ContactSection() {
       <Text
         position={[0, viewport.height / 2.5, -1]}
         fontSize={0.5}
-        
         anchorX="center"
         castShadow
       >
