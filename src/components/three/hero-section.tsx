@@ -1,18 +1,44 @@
+
 'use client';
 
 import { Suspense, useMemo } from 'react';
 import { Float, Sparkles, Text3D } from '@react-three/drei';
 import { useLoader, useThree } from '@react-three/fiber';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
-import * as THREE from 'three';
+import type { Font } from 'three-stdlib';
 
+// A simple fallback mesh that shows while the font is loading.
+function FallbackText() {
+  const { viewport } = useThree();
+  return (
+    <mesh position={[-viewport.width / 2.5, 0.2, 0]}>
+      <boxGeometry args={[4.5, 0.6, 0.1]} />
+      <meshStandardMaterial
+        color="hsl(var(--muted))"
+        emissive="black"
+        transparent
+        opacity={0.5}
+      />
+    </mesh>
+  );
+}
+
+// The main Title component that loads and renders the 3D text.
 function Title() {
   const { viewport } = useThree();
-  const font = useLoader(
-    FontLoader,
-    '/fonts/helvetiker_regular.typeface.json'
-  );
+  let font: Font | undefined;
+  try {
+    // Load the font file from the public directory.
+    // useLoader automatically suspends the component until the asset is loaded.
+    font = useLoader(FontLoader, '/fonts/helvetiker_regular.typeface.json');
+  } catch (e) {
+    console.error('Failed to load font:', e);
+    // If font loading fails, we can return the fallback or null.
+    return <FallbackText />;
+  }
 
+  // Memoize text options to avoid re-creating them on every render.
+  // This is only calculated once the font is successfully loaded.
   const textOptions = useMemo(() => {
     if (!font) return null;
     return {
@@ -37,14 +63,11 @@ function Title() {
     };
   }, [font]);
 
-  if (!textOptions) {
-    // Fallback while font is loading
-    return (
-      <mesh position={[-viewport.width / 2.5, 0.2, 0]}>
-        <boxGeometry args={[4, 0.6, 0.1]} />
-        <meshStandardMaterial color="hsl(var(--muted))" emissive="black" />
-      </mesh>
-    );
+  // Defensive check: if textOptions are not ready, don't render Text3D
+  if (!textOptions || !subTextOptions) {
+    // This part should ideally not be reached because of Suspense,
+    // but it's a good defensive measure.
+    return <FallbackText />;
   }
 
   return (
@@ -65,7 +88,6 @@ function Title() {
   );
 }
 
-
 export function HeroSection() {
   const { viewport } = useThree();
 
@@ -84,7 +106,12 @@ export function HeroSection() {
         </mesh>
       </Float>
 
-      <Suspense fallback={null}>
+      {/* 
+        Wrap the Title component in Suspense. 
+        This tells React to wait for the async operation inside (font loading)
+        and show a fallback UI in the meantime.
+      */}
+      <Suspense fallback={<FallbackText />}>
         <Title />
       </Suspense>
 
