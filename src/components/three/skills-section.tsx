@@ -126,7 +126,7 @@ export function SkillsSection() {
       <Text
         position={[0, viewport.height / 2.5, -1]}
         fontSize={0.5}
-        font={undefined}
+        
         anchorX="center"
         castShadow
       >

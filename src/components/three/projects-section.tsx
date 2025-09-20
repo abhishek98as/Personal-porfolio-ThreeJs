@@ -68,7 +68,7 @@ function ProjectCard({ position, project, activeProject, setActiveProject }) {
         color="white"
         anchorX="center"
         anchorY="middle"
-        font={undefined}
+        
       >
         {project.title.toUpperCase()}
       </Text>
@@ -88,7 +88,7 @@ export function ProjectsSection() {
       <Text
         position={[0, viewport.height / 2.5, -1]}
         fontSize={0.5}
-        font={undefined}
+        
         anchorX="center"
         castShadow
       >
