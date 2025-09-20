@@ -48,7 +48,7 @@ function BusinessCard() {
           <Text
             position={[0, 0.2, 0.03]}
             fontSize={0.2}
-            font="/fonts/Space_Grotesk_Bold.json"
+            font={undefined}
           >
             YOUR NAME
           </Text>
@@ -58,7 +58,7 @@ function BusinessCard() {
           <Text
             position={[0, -0.3, 0.03]}
             fontSize={0.07}
-            font="/fonts/Space_Grotesk_Bold.json"
+            font={undefined}
           >
             {active ? 'Click to Close' : 'Click to Open'}
           </Text>
@@ -75,7 +75,7 @@ function BusinessCard() {
           <Text
             position={[0, 0.3, 0.03]}
             fontSize={0.1}
-            font="/fonts/Space_Grotesk_Bold.json"
+            font={undefined}
           >
             CONTACT
           </Text>
@@ -131,7 +131,7 @@ export function ContactSection() {
       <Text
         position={[0, viewport.height / 2.5, -1]}
         fontSize={0.5}
-        font="/fonts/Space_Grotesk_Bold.json"
+        font={undefined}
         anchorX="center"
         castShadow
       >
