@@ -1,13 +1,24 @@
-import p1 from '../../space-portfolio/public/projects/project-1.png';
-import p2 from '../../space-portfolio/public/projects/project-2.png';
-import p3 from '../../space-portfolio/public/projects/project-3.png';
-
 type Item = { image: string; title: string; description: string; link: string };
 
 const PROJECTS: Item[] = [
-  { image: p1, title: 'Project One', description: 'A full-stack application for managing tasks.', link: '#' },
-  { image: p2, title: 'Project Two', description: 'An e-commerce platform with 3D viewer.', link: '#' },
-  { image: p3, title: 'Project Three', description: 'A data visualization dashboard.', link: '#' },
+  { 
+    image: '/project-1-BpwuCuTC.png', 
+    title: 'E-Commerce Platform', 
+    description: 'Full-stack e-commerce solution with Python backend, payment integration, and admin dashboard.', 
+    link: 'https://github.com/abhishek98as' 
+  },
+  { 
+    image: '/project-2-Gj5Kyzup.png', 
+    title: 'Data Analytics API', 
+    description: 'RESTful API for data processing and analytics with FastAPI, PostgreSQL, and real-time dashboards.', 
+    link: 'https://github.com/abhishek98as' 
+  },
+  { 
+    image: '/project-3-oqlSpsY1.png', 
+    title: 'Task Management System', 
+    description: 'Collaborative task management platform with real-time updates, notifications, and team features.', 
+    link: 'https://github.com/abhishek98as' 
+  },
 ];
 
 function Card({ item }: { item: Item }) {

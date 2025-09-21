@@ -1,7 +1,5 @@
 import { SparklesIcon } from '@heroicons/react/24/solid';
 import { motion } from 'framer-motion';
-import blackhole from '../../space-portfolio/public/videos/blackhole.webm';
-import heroBg from '../../space-portfolio/public/hero-bg.svg';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const slideInFromLeft = (delay = 0) => ({
@@ -18,7 +16,7 @@ export default function SpaceHero() {
   return (
     <section className="relative flex flex-col h-[80vh] w-full items-center justify-center overflow-hidden bg-gradient-bg">
       <video autoPlay muted loop className="rotate-180 absolute top-[-340px] left-0 w-full h-full object-cover -z-20 opacity-80 data-[theme=light]:opacity-40">
-        <source src={blackhole} type="video/webm" />
+        <source src="/blackhole.webm" type="video/webm" />
       </video>
 
       {/* Theme-aware gradient overlays */}
@@ -53,7 +51,7 @@ export default function SpaceHero() {
 
         <motion.img 
           variants={slideInFromRight(0.3)} 
-          src={heroBg} 
+          src="/hero-bg.svg" 
           alt="work icons" 
           width={650} 
           height={650} 
