@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "question": "What is your name?",
+    "keywords": ["name", "who are you", "introduce yourself"],
+    "answer": "Hi! I'm your interactive portfolio assistant. I'm here to help answer questions about this developer's skills and experience."
+  },
+  {
+    "id": 2,
+    "question": "What technologies do you know?",
+    "keywords": [
+      "technology",
+      "skills",
+      "programming",
+      "languages",
+      "frameworks",
+      "tech stack"
+    ],
+    "answer": "I specialize in modern web technologies including React, TypeScript, Node.js, Three.js, Next.js, and many other frameworks. I'm passionate about creating interactive 3D experiences and full-stack applications."
+  },
+  {
+    "id": 3,
+    "question": "What projects have you worked on?",
+    "keywords": [
+      "projects",
+      "work",
+      "portfolio",
+      "experience",
+      "built",
+      "created"
+    ],
+    "answer": "I've worked on various exciting projects including 3D web applications, e-commerce platforms, real-time chat applications, and interactive data visualizations. Check out the projects section to see my work in detail."
+  },
+  {
+    "id": 4,
+    "question": "How can I contact you?",
+    "keywords": [
+      "contact",
+      "email",
+      "reach",
+      "hire",
+      "collaboration",
+      "work together"
+    ],
+    "answer": "You can reach out through the contact form on this site, or connect with me on LinkedIn and GitHub. I'm always open to discussing new opportunities and interesting projects."
+  },
+  {
+    "id": 5,
+    "question": "What is your background?",
+    "keywords": [
+      "background",
+      "education",
+      "experience",
+      "career",
+      "journey",
+      "story"
+    ],
+    "answer": "I'm a passionate full-stack developer with experience in modern web technologies. I love creating immersive user experiences and solving complex technical challenges. My journey includes both frontend and backend development."
+  },
+  {
+    "id": 6,
+    "question": "What makes you unique?",
+    "keywords": [
+      "unique",
+      "special",
+      "different",
+      "standout",
+      "strength",
+      "expertise"
+    ],
+    "answer": "What sets me apart is my combination of technical expertise and creative vision. I specialize in bringing ideas to life through interactive 3D experiences and modern web technologies, always focusing on user experience and performance."
+  }
+]

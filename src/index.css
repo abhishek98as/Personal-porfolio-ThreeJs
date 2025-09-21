@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0b0d10;
+  --fg: #e5e7eb;
+}
+
+/* Enhanced Light/Dark theme tokens */
+[data-theme="dark"] {
+  /* Base surfaces */
+  --bg: #0b0d10; /* Deep space */
+  --bg-secondary: #111318;
+  --bg-tertiary: #1a1d23;
+  --bg-card: rgba(17, 19, 24, 0.8);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+
+  /* Foreground */
+  --fg: #ffffff; /* Pure white text for better contrast */
+  --fg-secondary: #cbd5e1; /* Slate-300 */
+  --fg-muted: #94a3b8; /* Slate-400 */
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.14);
+  --border-hover: rgba(255, 255, 255, 0.24);
+
+  /* Accents (keep vibrant like light) */
+  --accent-primary: #0ea5e9; /* Sky-500 */
+  --accent-secondary: #8b5cf6; /* Violet-500 */
+  --accent-tertiary: #ec4899; /* Pink-500 */
+  --accent-success: #10b981; /* Emerald-500 */
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.55);
+
+  /* Gradients (use light gradient, blended with black overlay 15%) */
+  --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+  --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  /* Compose two layers: colorful gradient + subtle black veil for depth (Apple/Tesla vibe) */
+  --gradient-bg: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #ec4899 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15));
+
+  /* FX */
+  --particle-color: #6ee7ff;
+  --glow-color: rgba(110, 231, 255, 0.5);
+}
+
+[data-theme="light"] {
+  /* Base surfaces */
+  --bg: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-overlay: rgba(255, 255, 255, 0.8);
+  --bg-glass: rgba(0, 0, 0, 0.02);
+
+  /* Foreground */
+  --fg: #0f172a; /* Slate-900 */
+  --fg-secondary: #334155; /* Slate-700 */
+  --fg-muted: #475569; /* Slate-600 */
+
+  /* Borders */
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.15);
+
+  /* Accents */
+  --accent-primary: #0ea5e9;
+  --accent-secondary: #8b5cf6;
+  --accent-tertiary: #ec4899;
+  --accent-success: #10b981;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+  /* Gradients (restore vibrant light background) */
+  --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+  --gradient-secondary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  --gradient-bg: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 50%, #ec4899 100%);
+
+  /* FX */
+  --particle-color: #0ea5e9;
+  --glow-color: rgba(14, 165, 233, 0.3);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  /* Use the vibrant gradient as page background, then rely on section backgrounds to create depth */
+  background-image: var(--gradient-bg);
+  background-attachment: fixed;
+  background-size: 160% 160%;
+  background-position: 50% 50%;
+  color: var(--fg);
+  font-family: theme("fontFamily.sans");
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gradient-background {
+  background: linear-gradient(120deg, #0ea5e9, #8b5cf6, #ec4899, #22c55e);
+  background-size: 300% 300%;
+  animation: gradientMove 16s ease infinite;
+}
+
+.scroll-container {
+  scroll-snap-type: y proximity;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable both-edges;
+  -webkit-overflow-scrolling: touch;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-background {
+    animation: none;
+  }
+}
+
+/* Gradient text utilities (Apple/Tesla-esque vibrancy) */
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-2 {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtle glass cards inherit theme surfaces */
+.card-glass {
+  background: var(--bg-card);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+/* Panels and cards gradient backgrounds */
+.panel-gradient {
+  background: var(--gradient-bg);
+  background-size: 200% 200%;
+  animation: gradientMove 16s ease infinite;
+}
+
+.card-gradient {
+  position: relative;
+  background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.08),
+        rgba(255, 255, 255, 0.02)
+      )
+      padding-box,
+    var(--gradient-primary) border-box;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-sm);
+}
